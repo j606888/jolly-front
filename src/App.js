@@ -8,7 +8,6 @@ import SecretPage from "./pages/SecretPage"
 
 function App() {
   const AuthCtx = useContext(AuthContext)
-  console.log(AuthCtx)
 
   return (
     <Switch>
