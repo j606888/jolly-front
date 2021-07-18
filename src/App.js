@@ -1,23 +1,28 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import './App.scss';
+import { useContext } from "react"
+import { Switch, Route, Redirect } from "react-router-dom"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Home from "./pages/Home"
+import AuthContext from "./store/auth-context"
+import SecretPage from "./pages/SecretPage"
 
 function App() {
+  const AuthCtx = useContext(AuthContext)
+  console.log(AuthCtx)
+
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <h1>Register</h1>
-          </Route>
-        </Switch>
-      </Router>
-      <h1>Hello</h1>
-    </div>
-  );
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      {!AuthCtx.isLoggedIn && <Route path="/login" component={Login} />}
+      {!AuthCtx.isLoggedIn && <Route path="/register" component={Register} />}
+      {AuthCtx.isLoggedIn && <Route path="/secret" component={SecretPage} />}
+      <Route path="*">
+        <Redirect to="/" />
+      </Route>
+    </Switch>
+  )
 }
 
-export default App;
+export default App

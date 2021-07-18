@@ -1,29 +1,34 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Link } from "react-router-dom"
-import Navbar from "../components/Navbar"
+import { register } from '../apis/auth'
 import Input from "../components/Input"
-import style from "./Login.module.scss"
+import style from "./Register.module.scss"
+import Navbar from "../components/Navbar"
 import AuthContext from "../store/auth-context"
-import { useContext } from 'react'
-import { login } from '../apis/auth'
+import { useContext } from "react"
 import "../global.css"
 
-const Login = () => {
+const Register = () => {
   const authCtx = useContext(AuthContext)
+
   const formik = useFormik({
     initialValues: {
+      name: "",
       email: "",
       password: "",
     },
     validationSchema: Yup.object({
+      name: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
         .min(8, "At least 8 characters")
         .required("Required"),
     }),
     onSubmit: (values) => {
-      login({ ...values }).then(resp => {
+      register({...values}).then(resp => {
         authCtx.login(resp)
       })
     },
@@ -33,24 +38,20 @@ const Login = () => {
     <div className={style.outer}>
       <Navbar />
       <form action="#" className={style.form} onSubmit={formik.handleSubmit}>
-        <h2>登入</h2>
+        <h2>註冊</h2>
         <p>
           以繼續使用 <span className="text-primary">揪哩</span>
         </p>
+        <Input name="name" formik={formik} autoComplete="off" />
         <Input name="email" formik={formik} />
         <Input type="password" name="password" formik={formik} />
-        <div className={style.checkbox}>
-          <input type="checkbox" name="remember" />
-          <label>記住我的帳號</label>
-          <a href="/#">忘記密嗎？</a>
-        </div>
-        <button type="submit">登入</button>
+        <button type="submit">註冊</button>
         <span className={style.register}>
-          沒有帳號嗎？<Link to="/register">前往註冊</Link>
+          已經有帳號嗎？<Link to="/login">前往登入</Link>
         </span>
       </form>
     </div>
   )
 }
 
-export default Login
+export default Register
