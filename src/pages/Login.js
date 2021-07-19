@@ -1,6 +1,6 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Input from "../components/Input"
 import style from "./Login.module.scss"
 import AuthContext from "../store/auth-context"
@@ -10,6 +10,7 @@ import Outer from "../components/Outer"
 import "../global.css"
 
 const Login = () => {
+  const history = useHistory()
   const authCtx = useContext(AuthContext)
   const formik = useFormik({
     initialValues: {
@@ -25,6 +26,7 @@ const Login = () => {
     onSubmit: (values) => {
       login({ ...values }).then(resp => {
         authCtx.login(resp)
+        history.push("forms")
       })
     },
   })

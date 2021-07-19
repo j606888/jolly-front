@@ -7,9 +7,11 @@ import style from "./Register.module.scss"
 import AuthContext from "../store/auth-context"
 import Outer from "../components/Outer"
 import { useContext } from "react"
+import { useHistory } from 'react-router-dom'
 import "../global.css"
 
 const Register = () => {
+  const history = useHistory()
   const authCtx = useContext(AuthContext)
 
   const formik = useFormik({
@@ -30,6 +32,7 @@ const Register = () => {
     onSubmit: (values) => {
       register({...values}).then(resp => {
         authCtx.login(resp)
+        history.push("/forms")
       })
     },
   })
