@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  width: 140px;
+  height: 42px;
+  // padding: 8px 16px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+
+  .icon {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+
+    i {
+      color: #ccc;
+    }
+  }
+
+  .text {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
