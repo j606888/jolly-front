@@ -1,0 +1,44 @@
+.container {
+  margin: 0 auto;
+  padding: 2rem 0;
+  max-width: 960px;
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .share {
+    margin-bottom: 2rem;
+
+    .link {
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      width: 300px;
+      font-size: .9rem;
+      padding: 6px;
+      margin-right: .5rem;
+    }
+  }
+
+  hr {
+    margin-bottom: 2rem;
+  }
+
+  .mattermost {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.send {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.formcontrol {
+  margin-bottom: 0.8rem;
+}

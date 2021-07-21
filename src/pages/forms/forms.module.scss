@@ -1,0 +1,47 @@
+.secondbar {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background-color: #F4F4F4;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  position: relative;
+  padding: 0 1rem;
+  height: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &.active::after {
+    content: "";
+    border-bottom: 7px solid var(--color-primary);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+
+  a {
+    border: none;
+  }
+}
+
+
+.cards-container {
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+

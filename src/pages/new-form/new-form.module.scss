@@ -1,0 +1,12 @@
+.secondbar {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background-color: #F4F4F4;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem 0 3rem;
+  z-index: 99;
+}
