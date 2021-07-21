@@ -3,16 +3,28 @@
   width: 140px;
   height: 42px;
   // padding: 8px 16px;
-  border: 2px solid #000;
+  border: 2px solid #999;
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover {
+    border-color: #000;
+
+    .icon {
+      background: #000;
+    }
+
+    .text {
+      color: #000;
+    }
+  }
 
   .icon {
     width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background: #999;
 
     i {
       color: #ccc;
@@ -24,5 +36,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #999;
   }
 }

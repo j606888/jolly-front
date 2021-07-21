@@ -1,19 +1,19 @@
-import style from './Radio.module.scss'
+import style from "./Checkbox.module.scss"
 
-const Radio = ({name, value}) => {
+const Checkbox = ({ name, value }) => {
   return (
     <label for={value} className={style.container}>
       <input
-        type="radio"
+        type="checkbox"
         name={name}
         id={value}
         value={value}
         className={style.input}
       />
-      <div className={style.radio}></div>
+      <div className={style.checkbox}></div>
       {value}
     </label>
   )
 }
 
-export default Radio
+export default Checkbox

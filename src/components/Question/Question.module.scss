@@ -31,9 +31,10 @@
 
     input[type=text] {
       width: 100%;
-      padding: 6px;
+      padding: 8px 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 1rem;
     }
 
     input[type=radio] {
@@ -70,4 +71,10 @@
 .formcontrol {
   width: 100%;
   margin-bottom: .6rem;
+}
+
+.delete {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

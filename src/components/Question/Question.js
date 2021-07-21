@@ -1,8 +1,18 @@
 import style from "./Question.module.scss"
 import { useState } from "react"
 import Switch from "react-switch"
+import RadioList from "./RadioList"
+import CheckboxList from "./CheckboxList"
 
-const Question = () => {
+const Question = ({ number, type }) => {
+  const icons = {
+    radio: "fas fa-circle",
+    checkbox: "fas fa-check-square",
+    text: "fas fa-font",
+    paragraph: "fas fa-align-left",
+  }
+
+  const icon = icons[type]
   const [checked, setChecked] = useState(false)
   const handleChange = (nextChecked) => {
     setChecked(nextChecked)
@@ -11,35 +21,21 @@ const Question = () => {
   return (
     <div className={style.container}>
       <div className={style.left}>
-        <span>1.</span>
-        <i className="fas fa-circle"></i>
+        <span>{number}.</span>
+        <i className={icon}></i>
       </div>
       <div className={style.right}>
         <div className={style.formcontrol}>
-          <input type="text" value="題目標題" />
+          <input type="text" placeholder="題目標題" />
         </div>
-        <div className={style.formcontrol}>
-          <label>
-            <input type="radio" name="animal" value="dog" />
-            <span>Dog</span>
-          </label>
-        </div>
-        <div className={style.formcontrol}>
-          <label>
-            <input type="radio" name="animal" value="cat" />
-            <span>Cat</span>
-          </label>
-        </div>
-        <div className={style.formcontrol}>
-          <button className={style.add}>
-            <i className="fas fa-plus"></i>
-            <span>新增選項</span>
-          </button>
-        </div>
+        {type === "radio" && <RadioList />}
+        {type === "checkbox" && <CheckboxList />}
         <div className={style.formcontrol}>
           <div className={style.setting}>
             <Switch onChange={handleChange} checked={checked} labels />
-            <i class="fas fa-trash"></i>
+            <button className={style.delete}>
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>

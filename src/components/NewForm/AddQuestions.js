@@ -6,7 +6,10 @@ import style from './AddQuestions.module.scss'
 const AddQuestions = () => {
   return (
     <div className={style.container}>
-      <Question />
+      <Question type="radio" number="1" />
+      <Question type="checkbox" number="2" />
+      <Question type="text" number="3" />
+      <Question type="paragraph" number="4" />
       <div className={style["options-box"]}>
         <i className={`fas fa-plus ${style.logo}`}></i>
         <div className={style.options}>
