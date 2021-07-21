@@ -10,3 +10,5 @@
 
 4. 每次按 Logo 的時候，Navbar component 似乎都會被重新產生，所以也會重新去呼叫 /api/v2/user/me 的 API。
 有什麼方法可以處理嗎？因為對我而言 Navbar 是常駐的，他不應該被重新產生才對。
+
+5. import module.scss 的時候不會有提示，需要手動輸入
