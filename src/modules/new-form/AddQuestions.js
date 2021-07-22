@@ -1,6 +1,6 @@
 import Option from '../../components/Option'
 import Button from "../../components/Button"
-import Question from "../../components/Question"
+import Question from "../Question"
 import style from './AddQuestions.module.scss'
 
 const AddQuestions = () => {

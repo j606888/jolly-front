@@ -1,17 +1,17 @@
-import style from './CheckboxList.module.scss'
-import Checkbox from '../Checkbox'
+import style from './RadioList.module.scss'
+import Radio from '../../components/Radio'
 
-const CheckboxList = () => {
+const RadioList = () => {
   return (
     <div className={style.container}>
       <div className={style.formcontrol}>
-        <Checkbox name="animal" value="BMW" />
+        <Radio name="animal" value="dog" />
       </div>
       <div className={style.formcontrol}>
-        <Checkbox name="animal" value="Mazda" />
+        <Radio name="animal" value="cat" />
       </div>
       <div className={style.formcontrol}>
-        <Checkbox name="animal" value="Nissan" />
+        <Radio name="animal" value="fish" />
       </div>
       <div className={style.formcontrol}>
         <button className={style.add}>
@@ -23,4 +23,4 @@ const CheckboxList = () => {
   )
 }
 
-export default CheckboxList
+export default RadioList
